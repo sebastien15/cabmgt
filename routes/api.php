@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\routeController;    
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,8 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //routes
 
-Route::get('routes', 'ApiController@getAllStudents');
-Route::get('routes/{id}', 'ApiController@getStudent');
-Route::post('routes', 'ApiController@createStudent');
-Route::put('routes/{id}', 'ApiController@updateStudent');
-Route::delete('routes/{id}','ApiController@deleteStudent');
+Route::get('routes', [routeController::class, 'index']);
+Route::get('routes/{id}', [routeController::class, 'show']);
+Route::post('routes', [routeController::class, 'store']);
+Route::put('routes/{id}', [routeController::class, 'update']);
+Route::delete('routes/{id}',[routeController::class, 'destroy']);
