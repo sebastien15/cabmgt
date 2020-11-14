@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//routes
+
+Route::get('routes', 'ApiController@getAllStudents');
+Route::get('routes/{id}', 'ApiController@getStudent');
+Route::post('routes', 'ApiController@createStudent');
+Route::put('routes/{id}', 'ApiController@updateStudent');
+Route::delete('routes/{id}','ApiController@deleteStudent');
