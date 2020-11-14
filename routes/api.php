@@ -2,8 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\routeController;    
 use App\Http\Controllers\contactController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +20,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//routes
+
+Route::get('routes', [routeController::class, 'index']);
+Route::get('routes/{id}', [routeController::class, 'show']);
+Route::post('routes', [routeController::class, 'store']);
+Route::put('routes/{id}', [routeController::class, 'update']);
+Route::delete('routes/{id}',[routeController::class, 'destroy']);
 // contact apis
 
 Route::get('contacts', [contactController::class, 'index']);
