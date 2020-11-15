@@ -16,9 +16,12 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-// Route::view('/', 'ui.home');
-Route::view('/', 'ui.about');
+Route::view('/', 'ui.home');
+Route::view('/about', 'ui.about');
 Route::view('/contactus', 'ui.contactus');
+Route::view('/offers', 'ui.offers');
+Route::view('/values', 'ui.values');
+Route::view('/siteMap', 'ui.siteMap');
 
 Auth::routes();
 
