@@ -23,8 +23,6 @@ class CreateBookingsTable extends Migration
             $table->boolean('approved');
             $table->integer('nbr_people');
             $table->integer('nbr_luggage');
-            $table->string('one_way');
-            $table->string('return');
             $table->string('pickup_date');
             $table->string('pickup_time');
             $table->string('pickup_full_add');

@@ -22,6 +22,15 @@ Route::view('/contactus', 'ui.contactus');
 Route::view('/offers', 'ui.offers');
 Route::view('/values', 'ui.values');
 Route::view('/siteMap', 'ui.siteMap');
+Route::view('/book', 'ui.book');
+
+
+//operator start
+
+Route::view('/operator/dashboard','ui.operator.dashboard');
+
+//operator ends 
+
 
 Auth::routes();
 

@@ -18,6 +18,11 @@ Vue.component('banner', require('./components/front/home/banner').default);
 Vue.component('offers', require('./components/front/home/offers').default);
 Vue.component('promise', require('./components/front/home/promise').default);
 Vue.component('safety', require('./components/front/home/safety').default);
+Vue.component('research', require('./components/front/booking/research').default);
+Vue.component('book-header', require('./components/front/booking/bookheader').default);
+Vue.component('no-cab', require('./components/front/booking/noCab').default);
+Vue.component('cab-list', require('./components/front/booking/cabList').default);
+Vue.component('operatordashboard', require('./components/admin/operator/dashboard').default);
 
 const app = new Vue({
     el: '#app',
