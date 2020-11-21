@@ -21,6 +21,11 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "tailwindcss": "^1.9.6"
+        "moment": "^2.29.1",
+        "sweetalert2": "^10.10.1",
+        "tailwindcss": "^1.9.6",
+        "vform": "^1.0.1",
+        "vue-progressbar": "^0.7.5",
+        "vue-router": "^3.4.9"
     }
 }

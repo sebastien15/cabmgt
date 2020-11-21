@@ -15,9 +15,9 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('route_id');
-            $table->integer('car_id');
+            $table->unSignedBigInteger('user_id');
+            $table->unSignedBigInteger('route_id');
+            $table->unSignedBigInteger('car_id');
             $table->string('seat_no');
             $table->boolean('payed');
             $table->boolean('approved');

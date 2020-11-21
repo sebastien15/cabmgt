@@ -6,6 +6,7 @@ use App\Http\Controllers\authController;
 use App\Http\Controllers\bookingController;
 use App\Http\Controllers\carController;
 use App\Http\Controllers\routeController;    
+use App\Http\Controllers\stationController;    
 use App\Http\Controllers\contactController;
 
 /*
@@ -53,6 +54,15 @@ Route::get('routes/{id}', [routeController::class, 'show']);
 Route::post('routes', [routeController::class, 'store']);
 Route::put('routes/{id}', [routeController::class, 'update']);
 Route::delete('routes/{id}',[routeController::class, 'destroy']);
+
+// stations
+
+Route::get('stations', [stationController::class, 'index']);
+Route::get('stations/{id}', [stationController::class, 'show']);
+Route::post('stations', [stationController::class, 'store']);
+Route::put('stations/{id}', [stationController::class, 'update']);
+Route::delete('stations/{id}',[stationController::class, 'destroy']);
+
 // contact apis
 
 Route::get('contacts', [contactController::class, 'index']);
