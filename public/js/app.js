@@ -2331,12 +2331,67 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "operatordashboard",
-  bookings: [],
+  data: function data() {
+    return {
+      bookings: {},
+      showSingleBookingModel: false,
+      singleBooking: {}
+    };
+  },
   methods: {
     allbookings: function allbookings() {
-      var booking = axios.get('../api/bookings').then(console.log(this.booking));
+      var _this = this;
+
+      axios.get("/api/bookings").then(function (data) {
+        return _this.bookings = data.data;
+      });
+    },
+    showSingleBooking: function showSingleBooking(id) {
+      var _this2 = this;
+
+      this.showSingleBookingModel = !this.showSingleBookingModel, axios.get("/api/bookings/" + id).then(function (response) {
+        return _this2.singleBooking = response.data;
+      }).then(console.log(this.singleBooking));
     }
   },
   beforeMount: function beforeMount() {
@@ -4072,236 +4127,372 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("hr", {
+      staticClass: "w-10/12 bg-blue-400 m-auto",
+      staticStyle: { height: "1px" }
+    }),
+    _vm._v(" "),
+    _c("div", { staticClass: "flex justify-around" }, [
+      _c("div", { staticClass: "w-1/2 p-2 md:pt-20 " }, [
+        _c("div", { staticClass: "overflow-x-auto" }, [
+          _c("table", { staticClass: "border border-blue-900 " }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              { staticClass: "border border-blue-400 border-t-0" },
+              _vm._l(_vm.bookings, function(booking) {
+                return _c("tr", { key: booking.id, staticClass: "p-2 " }, [
+                  _c("td", { staticClass: "border-r border-blue-400 p-2" }, [
+                    _vm._v(_vm._s(booking.id))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "border-r border-blue-400 p-2" }, [
+                    _vm._v(_vm._s(booking.user_id))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "border-r border-blue-400 p-2" }, [
+                    _vm._v(_vm._s(booking.route_id))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "border-r border-blue-400 p-2" }, [
+                    _vm._v(_vm._s(booking.car_id))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "border-r border-blue-400 p-2" }, [
+                    _vm._v(_vm._s(booking.seat_no))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "border-r border-blue-400 p-2" }, [
+                    _vm._v(_vm._s(booking.payed))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "border-r border-blue-400 p-2" }, [
+                    _vm._v(_vm._s(booking.approved))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "border-r border-blue-400 p-2" }, [
+                    _vm._v(_vm._s(booking.nbr_people))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "border-r border-blue-400 p-2" }, [
+                    _vm._v(_vm._s(booking.nbr_luggage))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "border-r border-blue-400 p-2" }, [
+                    _vm._v(_vm._s(booking.pickup_date))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "border-r border-blue-400 p-2" }, [
+                    _vm._v(_vm._s(booking.pickup_time))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "border-r border-blue-400 p-2" }, [
+                    _vm._v(_vm._s(booking.pickup_full_add))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "border-r border-blue-400 p-2" }, [
+                    _vm._v(_vm._s(booking.dropoff_full_add))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "border-r border-blue-400 p-2" }, [
+                    _vm._v(_vm._s(booking.custom_message))
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    { staticClass: "border-r border-blue-400 flex p-2" },
+                    [
+                      _c(
+                        "span",
+                        {
+                          staticClass: "cursor-pointer",
+                          on: {
+                            click: function($event) {
+                              return _vm.showSingleBooking(booking.id)
+                            }
+                          }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fa fa-eye text-xl text-blue-400 mr-2"
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(2, true)
+                    ]
+                  )
+                ])
+              }),
+              0
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "w-1/2" }, [_vm._v(" Notifications area")])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "w-11/12 md:w-8/12 bg-white border-blue-400 top-0 mt-5 md:mt-20  p-20",
+        class: [_vm.showSingleBookingModel ? "absolute" : "hidden"]
+      },
+      [
+        _c("div", { staticClass: "border-b-blue-200 mb-10" }, [
+          _c("div", { staticClass: "flex justify-between mb-5" }, [
+            _c("p", { staticClass: "text-xl font-bold " }, [_vm._v("Book id")]),
+            _vm._v(" "),
+            _c(
+              "p",
+              {
+                staticClass: "cursor-pointer",
+                on: {
+                  click: function($event) {
+                    return _vm.showSingleBooking(1)
+                  }
+                }
+              },
+              [_c("i", { staticClass: "fa fa-times text-blue-700 text-3xl" })]
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Hyedrabad to kigali")])
+        ]),
+        _vm._v(" "),
+        _vm._m(3),
+        _vm._v(" "),
+        _vm._m(4),
+        _vm._v(" "),
+        _vm._m(5)
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "p-5 flex justify-around mb-4" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "w-3/12 bg-blue-300 rounded-md p-5 py-10 cursor-pointer"
-          },
-          [
-            _c("div", { staticClass: "flex justify-around" }, [
-              _c("p", { staticClass: "text-2xl font-bold" }, [
-                _vm._v("Pending bookings ")
-              ]),
-              _vm._v(" "),
-              _c(
-                "p",
-                { staticClass: "rounded-full bg-blue-100 p-2 px-3 ml-4" },
-                [_vm._v("2")]
-              )
+    return _c("div", { staticClass: "p-5 flex justify-around mb-4" }, [
+      _c(
+        "div",
+        {
+          staticClass: "w-3/12 bg-blue-300 rounded-md p-5 py-10 cursor-pointer"
+        },
+        [
+          _c("div", { staticClass: "flex justify-around" }, [
+            _c("p", { staticClass: "text-2xl font-bold" }, [
+              _vm._v("Pending bookings ")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "rounded-full bg-blue-100 p-2 px-3 ml-4" }, [
+              _vm._v("2")
             ])
-          ]
-        ),
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "w-3/12 bg-green-300 rounded-md p-5 py-10 cursor-pointer"
+        },
+        [
+          _c("div", { staticClass: "flex justify-around" }, [
+            _c("p", { staticClass: "text-2xl font-bold" }, [
+              _vm._v("Pending payments ")
+            ]),
+            _vm._v(" "),
+            _c(
+              "p",
+              { staticClass: "rounded-full bg-green-100 p-2 px-3 ml-4" },
+              [_vm._v("2")]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "w-3/12 bg-gray-300 rounded-md p-5 py-10 cursor-pointer"
+        },
+        [
+          _c("div", { staticClass: "flex justify-around" }, [
+            _c("p", { staticClass: "text-2xl font-bold" }, [
+              _vm._v("Notifications ")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "rounded-full bg-gray-100 p-2 px-3 ml-4" }, [
+              _vm._v("2")
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "border border-blue-900 " }, [
+      _c("tr", { staticClass: "p-2 text-sm font-bold" }, [
+        _c("td", { staticClass: "border-r border-blue-600 p-2" }, [
+          _vm._v("id")
+        ]),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "w-3/12 bg-green-300 rounded-md p-5 py-10 cursor-pointer"
-          },
-          [
-            _c("div", { staticClass: "flex justify-around" }, [
-              _c("p", { staticClass: "text-2xl font-bold" }, [
-                _vm._v("Pending payments ")
-              ]),
-              _vm._v(" "),
-              _c(
-                "p",
-                { staticClass: "rounded-full bg-green-100 p-2 px-3 ml-4" },
-                [_vm._v("2")]
-              )
-            ])
-          ]
-        ),
+        _c("td", { staticClass: "border-r border-blue-600 p-2" }, [
+          _vm._v("user_id")
+        ]),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "w-3/12 bg-gray-300 rounded-md p-5 py-10 cursor-pointer"
-          },
-          [
-            _c("div", { staticClass: "flex justify-around" }, [
-              _c("p", { staticClass: "text-2xl font-bold" }, [
-                _vm._v("Notifications ")
-              ]),
-              _vm._v(" "),
-              _c(
-                "p",
-                { staticClass: "rounded-full bg-gray-100 p-2 px-3 ml-4" },
-                [_vm._v("2")]
-              )
-            ])
-          ]
+        _c("td", { staticClass: "border-r border-blue-600 p-2" }, [
+          _vm._v("route_id")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "border-r border-blue-600 p-2" }, [
+          _vm._v("car_id")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "border-r border-blue-600 p-2" }, [
+          _vm._v("seat_no")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "border-r border-blue-600 p-2" }, [
+          _vm._v("payed")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "border-r border-blue-600 p-2" }, [
+          _vm._v("approved")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "border-r border-blue-600 p-2" }, [
+          _vm._v("nbr_people")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "border-r border-blue-600 p-2" }, [
+          _vm._v("nbr_luggage")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "border-r border-blue-600 p-2" }, [
+          _vm._v("pickup_date")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "border-r border-blue-600 p-2" }, [
+          _vm._v("pickup_time")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "border-r border-blue-600 p-2" }, [
+          _vm._v("pickup_full_add")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "border-r border-blue-600 p-2" }, [
+          _vm._v("dropoff_full_add")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "border-r border-blue-600 p-2" }, [
+          _vm._v("custom_message")
+        ]),
+        _vm._v(" "),
+        _c("td", { staticClass: "border-r border-blue-600 p-2" }, [
+          _vm._v("quick actions")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "cursor-pointer" }, [
+      _c("i", {
+        staticClass: "fa fa-trash text-2xl text-red-500 cursor-pointer"
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: " mb-10" }, [
+      _c("h3", [_vm._v("Passenger info")]),
+      _vm._v(" "),
+      _c("div", [
+        _c("p", [_vm._v("Passenger names: Ndagijimana sebastine")]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v("Passenger phone: "),
+          _c("a", { attrs: { href: "tel:0788451717" } }, [_vm._v("0788451717")])
+        ]),
+        _vm._v(" "),
+        _c("p", [_vm._v("Passenger sex: Male")]),
+        _vm._v(" "),
+        _c("p", [_vm._v("Passenger with luggage: yes")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: " mb-10" }, [
+      _c("p", { staticClass: "text-lg leading-8 font-light mb-5" }, [
+        _vm._v(
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut blanditiis eligendi \n                accusantium, similique minima earum corrupti voluptate odit qui veritatis possimus \n                sit facere quisquam maiores provident eaque necessitatibus rem quis.\n            "
         )
       ]),
       _vm._v(" "),
-      _c("hr", {
-        staticClass: "w-10/12 bg-blue-400 m-auto",
-        staticStyle: { height: "1px" }
-      }),
+      _c("p", [
+        _vm._v("Payment status: "),
+        _c("span", { staticClass: "text-blue-300 border-1 border-blue-300" }, [
+          _vm._v("Payed")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("h3", [_vm._v("Quick actions")]),
       _vm._v(" "),
-      _c("div", { staticClass: "flex justify-around" }, [
-        _c("div", { staticClass: "w-1/2 p-2 md:pt-20 " }, [
-          _c("div", { staticClass: "overflow-x-auto" }, [
-            _c("table", {}, [
-              _c("thead", { staticClass: "border border-gray-900 " }, [
-                _c("tr", { staticClass: "p-2 text-sm font-bold" }, [
-                  _c("td", { staticClass: "border-r border-gray-900 p-2" }, [
-                    _vm._v("id")
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "border-r border-gray-900 p-2" }, [
-                    _vm._v("user_id")
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "border-r border-gray-900 p-2" }, [
-                    _vm._v("route_id")
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "border-r border-gray-900 p-2" }, [
-                    _vm._v("car_id")
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "border-r border-gray-900 p-2" }, [
-                    _vm._v("seat_no")
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "border-r border-gray-900 p-2" }, [
-                    _vm._v("payed")
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "border-r border-gray-900 p-2" }, [
-                    _vm._v("approved")
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "border-r border-gray-900 p-2" }, [
-                    _vm._v("nbr_people")
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "border-r border-gray-900 p-2" }, [
-                    _vm._v("nbr_luggage")
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "border-r border-gray-900 p-2" }, [
-                    _vm._v("pickup_date")
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "border-r border-gray-900 p-2" }, [
-                    _vm._v("pickup_time")
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "border-r border-gray-900 p-2" }, [
-                    _vm._v("pickup_full_add")
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "border-r border-gray-900 p-2" }, [
-                    _vm._v("dropoff_full_add")
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "border-r border-gray-900 p-2" }, [
-                    _vm._v("custom_message")
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "border-r border-gray-900 p-2" }, [
-                    _vm._v("quick actions")
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                { staticClass: "border border-gray-400 border-t-0" },
-                [
-                  _c("tr", { staticClass: "p-2 " }, [
-                    _c("td", { staticClass: "border-r border-gray-400" }, [
-                      _vm._v("1")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "border-r border-gray-400" }, [
-                      _vm._v("1")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "border-r border-gray-400" }, [
-                      _vm._v("1")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "border-r border-gray-400" }, [
-                      _vm._v("1")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "border-r border-gray-400" }, [
-                      _vm._v("1")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "border-r border-gray-400" }, [
-                      _vm._v("1")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "border-r border-gray-400" }, [
-                      _vm._v("1")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "border-r border-gray-400" }, [
-                      _vm._v("1")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "border-r border-gray-400" }, [
-                      _vm._v("1")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "border-r border-gray-400" }, [
-                      _vm._v("1")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "border-r border-gray-400" }, [
-                      _vm._v("1")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "border-r border-gray-400" }, [
-                      _vm._v("1")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "border-r border-gray-400" }, [
-                      _vm._v("1")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "border-r border-gray-400" }, [
-                      _vm._v("1")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "border-r border-gray-400 flex" }, [
-                      _c("span", [
-                        _c("i", {
-                          staticClass:
-                            "fa fa-eye text-2xl text-blue-400 cursor-pointer mr-1"
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("span", [
-                        _c("i", {
-                          staticClass:
-                            "fa fa-trash text-2xl text-red-500 cursor-pointer"
-                        })
-                      ])
-                    ])
-                  ])
-                ]
-              )
-            ])
-          ])
-        ]),
+      _c("div", { staticClass: "flex justify-items-start pt-10" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "p-2 rounded-md mr-3 text-md font-light border-2 border-green-600 text-green-600",
+            attrs: { type: "submit" }
+          },
+          [_vm._v("Cancel")]
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "w-1/2" })
+        _c(
+          "button",
+          {
+            staticClass:
+              "p-2 rounded-md mr-3 text-md font-light border-2 border-red-600 text-red-600",
+            attrs: { type: "submit" }
+          },
+          [_vm._v("Delete")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "p-2 rounded-md mr-3 text-md font-light border-2 border-blue-600 text-blue-600",
+            attrs: { type: "submit" }
+          },
+          [_vm._v("Call passenger")]
+        )
       ])
     ])
   }
@@ -17794,14 +17985,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************************!*\
   !*** ./resources/js/components/admin/operator/dashboard.vue ***!
   \**************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dashboard_vue_vue_type_template_id_89aadf18_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dashboard.vue?vue&type=template&id=89aadf18&scoped=true& */ "./resources/js/components/admin/operator/dashboard.vue?vue&type=template&id=89aadf18&scoped=true&");
 /* harmony import */ var _dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dashboard.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/operator/dashboard.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -17831,7 +18023,7 @@ component.options.__file = "resources/js/components/admin/operator/dashboard.vue
 /*!***************************************************************************************!*\
   !*** ./resources/js/components/admin/operator/dashboard.vue?vue&type=script&lang=js& ***!
   \***************************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
