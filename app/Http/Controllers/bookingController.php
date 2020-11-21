@@ -50,8 +50,6 @@ class bookingController extends Controller
         $booking->approved         = $request->approved;
         $booking->nbr_people       = $request->nbr_people;
         $booking->nbr_luggage      = $request->nbr_luggage;
-        $booking->one_way          = $request->one_way;
-        $booking->return           = $request->return;
         $booking->pickup_date      = $request->pickup_date;
         $booking->pickup_time      = $request->pickup_time;
         $booking->pickup_full_add  = $request->pickup_full_add;
@@ -118,8 +116,6 @@ class bookingController extends Controller
             $booking->approved         = is_null($request->approved) ? $booking->approved : $request->approved;
             $booking->nbr_people       = is_null($request->nbr_people) ? $booking->nbr_people : $request->nbr_people;
             $booking->nbr_luggage      = is_null($request->nbr_luggage) ? $booking->nbr_luggage : $request->nbr_luggage;
-            $booking->one_way          = is_null($request->one_way) ? $booking->one_way : $request->one_way;
-            $booking->return           = is_null($request->return) ? $booking->return : $request->return;
             $booking->pickup_date      = is_null($request->pickup_date) ? $booking->pickup_date : $request->pickup_date;
             $booking->pickup_time      = is_null($request->pickup_time) ? $booking->pickup_time : $request->pickup_time;
             $booking->pickup_full_add  = is_null($request->pickup_full_add) ? $booking->pickup_full_add : $request->pickup_full_add;
