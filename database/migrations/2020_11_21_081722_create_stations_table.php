@@ -22,6 +22,7 @@ class CreateStationsTable extends Migration
             $table->string('to_postcode')->nullable();
             $table->string('kilometers')->nullable();
             $table->string('price')->nullable();
+            $table->string('time');
             $table->timestamps();
         });
     }

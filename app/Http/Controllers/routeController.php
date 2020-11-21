@@ -48,6 +48,8 @@ class routeController extends Controller
         $route->from_post_code = $request->from_post_code;
         $route->to_post_code = $request->to_post_code;
         $route->price = $request->price;
+        $route->kilometers = $request->kilometers;
+        $route->time = $request->time;
  
         $route->save();
         
@@ -102,6 +104,8 @@ class routeController extends Controller
             $route->from_post_code = is_null($request->from_post_code) ? $route->from_post_code : $request->from_post_code;
             $route->to_post_code = is_null($request->to_post_code) ? $route->to_post_code : $request->to_post_code;
             $route->price = is_null($request->price) ? $route->price : $request->price;
+            $route->kilometers = is_null($request->kilometers) ? $route->kilometers : $request->kilometers;
+            $route->time = is_null($request->time) ? $route->time : $request->time;
  
             $route->save();
  
