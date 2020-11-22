@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
+// Route::get('/welcome', function () {
 //     return view('welcome');
 // });
 Route::view('/', 'ui.home');
@@ -24,24 +24,14 @@ Route::view('/values', 'ui.values');
 Route::view('/siteMap', 'ui.siteMap');
 Route::view('/book', 'ui.book');
 
-
 //operator start
 
-Route::view('/operator/dashboard','ui.operator.dashboard');
+Route::view('/operator/dashboard','ui.operator.dashboard')->middleware('isOperator');
 
 //operator ends 
 
-
 Auth::routes();
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::view('/ui', 'ui.dashboard');
-
-
-Auth::routes();
-
-Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::view('/ui', 'ui.dashboard');
-
+Route::view('/ui', 'ui.dashboard')->middleware('isAdmin');

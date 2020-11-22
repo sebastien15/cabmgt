@@ -23,6 +23,8 @@ Vue.component('book-header', require('./components/front/booking/bookheader').de
 Vue.component('no-cab', require('./components/front/booking/noCab').default);
 Vue.component('cab-list', require('./components/front/booking/cabList').default);
 Vue.component('operatordashboard', require('./components/admin/operator/dashboard').default);
+Vue.component('register', require('./components/auth/register').default);
+Vue.component('login', require('./components/auth/login').default);
 
 const app = new Vue({
     el: '#app',
