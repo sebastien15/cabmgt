@@ -44,6 +44,14 @@
                     </a>
                 </li>
                 <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2">
+                    <a href="/operator/routesAndStations" class="flex items-center cursor-pointer text-gray-500">
+                        <i class="fas fa-tachometer-alt blue"></i>
+                        <p class="ml-1">
+                        Routes & stations
+                        </p>
+                    </a>
+                </li>
+                <li class="px-2 py-3 hover:bg-gray-900 rounded mt-2">
                     <a href="#" class="flex items-center">
                         <svg class="w-6 text-gray-500" fill="none" stroke-linecap="round"
                              stroke-linejoin="round"

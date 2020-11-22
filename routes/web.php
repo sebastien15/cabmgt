@@ -29,6 +29,10 @@ Route::view('/book', 'ui.book');
 
 Route::view('/operator/dashboard','ui.operator.dashboard');
 
+//super admin pages
+Route::view('/operator/routesAndStations','ui.admin.routesAndStations');
+Route::view('/admin/car','ui.admin.car');
+
 //operator ends 
 
 
