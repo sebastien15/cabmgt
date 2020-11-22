@@ -83,7 +83,17 @@ class stationController extends Controller
             ], 404);
           }
     }
-
+    public function findByRouteId($id)
+    {
+        if (Station::where('route_id', $id)->exists()) {
+            $stations = Station::where('route_id', $id)->get()->toJson(JSON_PRETTY_PRINT);
+            return response($stations, 200);
+        } else {
+            return response()->json([
+              "message" => "station not found"
+            ], 404);
+        }
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -144,6 +154,21 @@ class stationController extends Controller
     
             return response()->json([
               "message" => "records deleted"
+            ], 202);
+          } else {
+            return response()->json([
+              "message" => "station not found"
+            ], 404);
+          }
+
+    }
+    public function destroyByRouteId($id)
+    {
+        if(Station::where('route_id', $id)->exists()) {
+            $stations = Station::where('route_id', $id)->delete();      
+    
+            return response()->json([
+              "message" => "stations deleted",
             ], 202);
           } else {
             return response()->json([

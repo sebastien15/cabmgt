@@ -1,6 +1,39 @@
+window.Vue = require('vue');
+
 require('./bootstrap');
 
-window.Vue = require('vue');
+//Import Vue Filter
+require('./filter'); 
+
+//Import progressbar
+require('./progressbar'); 
+
+//Setup custom events 
+require('./customEvents'); 
+
+//Import Sweetalert2
+import Swal from 'sweetalert2'
+window.Swal = Swal
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+window.Toast = Toast
+
+//Import v-from
+import { Form, HasError, AlertError } from 'vform'
+window.Form = Form;
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError)
+
+
 
 Vue.component('base-nav', require('./components/UI/BaseNav').default);
 Vue.component('base-header', require('./components/UI/BaseHeader').default);
@@ -23,6 +56,8 @@ Vue.component('book-header', require('./components/front/booking/bookheader').de
 Vue.component('no-cab', require('./components/front/booking/noCab').default);
 Vue.component('cab-list', require('./components/front/booking/cabList').default);
 Vue.component('operatordashboard', require('./components/admin/operator/dashboard').default);
+Vue.component('routesandstations', require('./components/admin/operator/routesAndStations').default);
+Vue.component('car', require('./components/admin/superAdmin/car').default);
 
 const app = new Vue({
     el: '#app',

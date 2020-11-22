@@ -59,9 +59,11 @@ Route::delete('routes/{id}',[routeController::class, 'destroy']);
 
 Route::get('stations', [stationController::class, 'index']);
 Route::get('stations/{id}', [stationController::class, 'show']);
+Route::get('stationsByRouteId/{id}', [stationController::class, 'findByRouteId']);
 Route::post('stations', [stationController::class, 'store']);
 Route::put('stations/{id}', [stationController::class, 'update']);
 Route::delete('stations/{id}',[stationController::class, 'destroy']);
+Route::delete('stationDestroyByRouteId/{id}',[stationController::class, 'destroyByRouteId']);
 
 // contact apis
 

@@ -48,8 +48,6 @@ class carController extends Controller
         $car->seates = $request->seates;
         $car->luggage_place = $request->luggage_place;
         $car->status = $request->status;
-        $car->operator_id = $request->operator_id;
-        $car->custom_price_per_km = $request->custom_price_per_km;
  
         $car->save();
         
@@ -106,8 +104,6 @@ class carController extends Controller
             $car->image = is_null($request->image) ? $car->image : $request->image;
             $car->seates = is_null($request->seates) ? $car->seates : $request->seates;
             $car->luggage_place = is_null($request->luggage_place) ? $car->luggage_place : $request->luggage_place;
-            $car->operator_id = is_null($request->operator_id) ? $car->operator_id : $request->operator_id;
-            $car->custom_price_per_km = is_null($request->custom_price_per_km) ? $car->custom_price_per_km : $request->custom_price_per_km;
  
             $car->save();
  

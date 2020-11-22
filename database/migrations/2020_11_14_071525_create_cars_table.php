@@ -21,8 +21,6 @@ class CreateCarsTable extends Migration
             $table->string('seates');
             $table->string('luggage_place');
             $table->string('status');
-            $table->unSignedBigInteger('operator_id');
-            $table->string('custom_price_per_km');
             $table->timestamps();
         });
     }
