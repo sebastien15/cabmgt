@@ -58,6 +58,8 @@ Vue.component('cab-list', require('./components/front/booking/cabList').default)
 Vue.component('operatordashboard', require('./components/admin/operator/dashboard').default);
 Vue.component('routesandstations', require('./components/admin/operator/routesAndStations').default);
 Vue.component('car', require('./components/admin/superAdmin/car').default);
+Vue.component('register', require('./components/auth/register').default);
+Vue.component('login', require('./components/auth/login').default);
 
 const app = new Vue({
     el: '#app',
