@@ -109,12 +109,14 @@ class authController extends Controller
         if (Auth::attempt($credentials)) {
             // Authentication passed...
             // return redirect()->intended('dashboard');
-            return response()->json([
-                "message"=> "well authenticated"
-            ], 202);
+            // return response()->json([
+                
+            //     "message"=> "well authenticated"
+            // ], 202);
+            return Auth::user();
         } else{
             return response()->json([
-                "message" => "user not found"
+                "message" => "Email or password not recognized"
               ], 404);
         }
     }

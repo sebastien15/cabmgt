@@ -5,13 +5,13 @@
                 <div class="text-center font-bold text-gray-700 text-3xl">Brand</div>
                 <div class="mt-1 text-center font-bold text-gray-600 text-xl">Welcome Back</div>
                 <div class="mt-1 text-center text-gray-600">Login or Register</div>
-                <form>
+                <form @submit.prevent="login()">
                     <div class="mt-4 w-full">
-                        <input type="email" name="email" placeholder="Email address"
+                        <input type="email" name="email" v-model="form.email" placeholder="Email address"
                                class="w-full mt-2 py-3 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white"/>
                     </div>
                     <div class="mt-4 w-full">
-                        <input type="password" name="password" placeholder="Password"
+                        <input type="password" name="password" v-model="form.password" placeholder="Password"
                                class="w-full mt-2 py-3 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white"/>
                     </div>
                     <div class="flex justify-between items-center mt-6">
@@ -34,9 +34,18 @@
 <script>
 export default {
     name: "login",
+    data() {
+        return {
+            form: new Form({
+                    email: '',
+                    password: '',
+                }),
+        }
+    },
     methods: {
         login() {
-            console.log('woking');
+            axios.post("/api/login").then( data=>(this.singleRoute = data.data[0] ))
+
         }
     },
     beforeMount() {
